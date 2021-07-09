@@ -19,4 +19,9 @@ Route::get('/', function () {
     return view('home', compact('comics'));
 });
 
+Route::get('/characters', function(){
+
+    return view('characters');
+});
+
 
