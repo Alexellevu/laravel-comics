@@ -64,7 +64,7 @@
         DC POWER ADDITIONAL SITES
     </div>
 
-    <div class="main_menu">
+    <div class="nav_menu">
         
             <nav>
                 <ul>

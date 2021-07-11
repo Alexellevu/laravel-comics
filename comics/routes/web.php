@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,11 +21,28 @@ Route::get('/', function () {
 })->name ('home');
 
 
-
+//comics routes
 Route::get('/comics', function(){
-    $comics = config('comic.data');
-    return view('comics', compact('comics'));
+    $comics = config('comics.data');
+    return view('comics.index', compact('comics'));
 })->name ('comics');
+
+Route::get('/comics/{id}', function ($id){
+    $comics = config('comics.data');
+    
+    if(is_numeric($id) && $id < count($comics) && $id >= 0 ){
+        $comic = $comics[$id];
+        return view('comics.show',compact('comic')); 
+    }else{
+        abort(404);
+    }
+
+})->name('comic');
+
+
+//comics routes
+
+
 
 Route::get('/characters', function(){
 
